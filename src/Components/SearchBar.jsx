@@ -17,11 +17,11 @@ const SearchBar = () => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit} className='lg:flex lg:block space-y-3   p-10 gap-10'>
-                <label htmlFor='search' className='text-4xl  mt-1'>Enter-:</label>
+            <form onSubmit={handleSubmit} className='flex space-y-3   p-10 gap-10'>
+                <label htmlFor='search' className='text-4xl  mt-1 text-white'>Enter-:</label>
                 <input
                     required
-                    className='w-full  border-2 px-4 py-2  text-xl rounded'
+                    className='w-full  border-1 border-white px-4 py-2 text-white  text-xl rounded'
                     type="text" id='search' placeholder='Search Anything...' value={textsearch} onChange={(e)=>{
                         setTextSearch(e.target.value)
                     }} />
