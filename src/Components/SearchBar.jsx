@@ -1,31 +1,47 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { setQuery } from '../Redux/Features/searchSlice';
+import { useDispatch } from 'react-redux'
+import { setQuery } from '../Redux/Features/searchSlice'
 
 const SearchBar = () => {
+    const [textsearch, setTextSearch] = useState('')
 
-    const [textsearch, setTextSearch] = useState('');
-   
-    const dispatch =  useDispatch();
+    const dispatch = useDispatch()
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-         dispatch(setQuery(textsearch))
-        setTextSearch("")
-
+        e.preventDefault()
+        dispatch(setQuery(textsearch))
+        setTextSearch('')
     }
 
     return (
         <div>
-            <form onSubmit={handleSubmit} className='flex space-y-3   p-10 gap-10'>
-                <label htmlFor='search' className='text-4xl  mt-1 text-white'>Enter-:</label>
+            <form
+                onSubmit={handleSubmit}
+                className='flex flex-col md:flex-row items-center gap-4 p-4 md:p-10'
+            >
+                <label
+                    htmlFor='search'
+                    className='text-2xl md:text-4xl text-white'
+                >
+                    Enter:
+                </label>
+
                 <input
                     required
-                    className='w-full  border-1 border-white px-4 py-2 text-white  text-xl rounded'
-                    type="text" id='search' placeholder='Search Anything...' value={textsearch} onChange={(e)=>{
-                        setTextSearch(e.target.value)
-                    }} />
-                <button className='text-2xl rounded mt-1 mb-2 bg-blue-500 p-2 active:scale-90 cursor-pointer'  >Search</button>
+                    id='search'
+                    type='text'
+                    placeholder='Search Anything...'
+                    value={textsearch}
+                    onChange={(e) => setTextSearch(e.target.value)}
+                    className='w-full border border-white px-4 py-2 text-white text-lg md:text-xl rounded focus:outline-none focus:ring-2 focus:ring-blue-400'
+                />
+
+                <button
+                    type='submit'
+                    className='w-full md:w-auto text-lg md:text-2xl rounded bg-blue-500 px-6 py-2 active:scale-90 cursor-pointer transition-transform'
+                >
+                    Search
+                </button>
             </form>
         </div>
     )

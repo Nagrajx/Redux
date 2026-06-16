@@ -6,6 +6,7 @@ import Tabs from './Components/Tabs'
 import ResultGrid from './Components/ResultGrid'
 import Home from './Pages/HomePage'
 import Collection from './Pages/CollectionPage'
+import { ToastContainer } from 'react-toastify'
 
 const App = () => {
 
@@ -19,6 +20,8 @@ const App = () => {
         <Route path='/collection' element={<Collection />}></Route>
       </Routes>
       
+      <ToastContainer />
+
     </div>
   )
 }

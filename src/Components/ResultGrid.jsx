@@ -18,7 +18,7 @@ const ResultGrid = () => {
                 return;
             }
             try {
-                dispatch(setLoading())
+                dispatch(setLoading(true))
                 let data = []
                 if (activeTab == 'photos') {
                     try {
